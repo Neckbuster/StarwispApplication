@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style type="text/css">
+	.container{
+		width:25rem;
+		height: 30rem;
+		border: 1px solid black;
+		padding: .5rem;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Login Page</h1> 
+	  <div class="form-group">
+	    <label for="exampleInputEmail1">User-Name</label>
+	    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter User-Name" name="username">
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleInputPassword1">Password</label>
+	    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+	  </div>
+	  <button class="btn btn-primary btn-block" onClick=Checksome()>Submit</button>
+	</div>
+	<script type="text/javascript">
+		function Checksome(e){
+			var data  = {};
+			data['username']='niket';
+			var xhr = new XMLHttpRequest();
+			xhr.open('POST', '/login', true);
+
+			xhr.onreadystatechange = function(res) { // Call a function when the state changes.
+			    if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+			        // Request finished. Do processing here.
+			        alert(res.target.responseText);
+			    }
+			}
+			xhr.send(data)
+			// xhr.send({'username':document.querySelector("#exampleInputEmail1").value , 'password': document.querySelector('#exampleInputPassword1').value})
+		}
+	</script>
+</body>
+</html>s
